@@ -48,7 +48,11 @@ public final class RegistryHandler
 {
     //Metals
     public static final ResourceLocation ALUMINIUM = new ResourceLocation(MOD_ID, "aluminium");
-    public static final ResourceLocation ALUMINIUM_BRASS = new ResourceLocation(MOD_ID, "aluminium_brass");
+    public static final ResourceLocation CONSTANTAN = new ResourceLocation(MOD_ID, "constantan");
+    public static final ResourceLocation ELECTRUM = new ResourceLocation(MOD_ID, "electrum");
+    public static final ResourceLocation TITANIUM = new ResourceLocation(MOD_ID, "titanium");
+
+    /*public static final ResourceLocation ALUMINIUM_BRASS = new ResourceLocation(MOD_ID, "aluminium_brass");
     public static final ResourceLocation ANTIMONY = new ResourceLocation(MOD_ID, "antimony");
     public static final ResourceLocation ARDITE = new ResourceLocation(MOD_ID, "ardite");
     public static final ResourceLocation COBALT = new ResourceLocation(MOD_ID, "cobalt");
@@ -76,37 +80,44 @@ public final class RegistryHandler
     public static final ResourceLocation HSLA_STEEL = new ResourceLocation(MOD_ID, "hsla_steel"); // steel + manganese
     public static final ResourceLocation MAGNESIUM_DIBORIDE = new ResourceLocation(MOD_ID, "magnesium_diboride"); // magnesium + steel
     public static final ResourceLocation TOUGH = new ResourceLocation(MOD_ID, "tough"); // Ferroboron + lithium
-    public static final ResourceLocation URANIUM = new ResourceLocation(MOD_ID, "uranium");
+    public static final ResourceLocation URANIUM = new ResourceLocation(MOD_ID, "uranium");*/
 
     //Ores
-    public static final ResourceLocation NATIVE_ARDITE = new ResourceLocation(MOD_ID, "native_ardite");
-    public static final ResourceLocation NATIVE_OSMIUM = new ResourceLocation(MOD_ID, "native_osmium");
+    //public static final ResourceLocation NATIVE_ARDITE = new ResourceLocation(MOD_ID, "native_ardite");
+    //public static final ResourceLocation NATIVE_OSMIUM = new ResourceLocation(MOD_ID, "native_osmium");
     public static final ResourceLocation BAUXITE = new ResourceLocation(MOD_ID, "bauxite"); // aluminium / titanium
-    public static final ResourceLocation WOLFRAMITE = new ResourceLocation(MOD_ID, "wolframite"); // tungsten
-    public static final ResourceLocation COBALTITE = new ResourceLocation(MOD_ID, "cobaltite"); // cobalt
-    public static final ResourceLocation STIBNITE = new ResourceLocation(MOD_ID, "stibnite"); // antimony
+    //public static final ResourceLocation WOLFRAMITE = new ResourceLocation(MOD_ID, "wolframite"); // tungsten
+    //public static final ResourceLocation COBALTITE = new ResourceLocation(MOD_ID, "cobaltite"); // cobalt
+    //public static final ResourceLocation STIBNITE = new ResourceLocation(MOD_ID, "stibnite"); // antimony
     public static final ResourceLocation RUTILE = new ResourceLocation(MOD_ID, "rutile"); // titanium
-    public static final ResourceLocation TETRABORATE = new ResourceLocation(MOD_ID, "tetraborate"); // boron
-    public static final ResourceLocation SPODUMENE = new ResourceLocation(MOD_ID, "spodumene"); // lithium
-    public static final ResourceLocation THORIANITE = new ResourceLocation(MOD_ID, "thorianite"); // thorium
-    public static final ResourceLocation PYROLUSITE = new ResourceLocation(MOD_ID, "pyrolusite"); // manganese
-    public static final ResourceLocation MAGNESITE = new ResourceLocation(MOD_ID, "magnesite"); //magnesium
-    public static final ResourceLocation BERYL = new ResourceLocation(MOD_ID, "beryl"); //beryllium
-    public static final ResourceLocation ZIRCON = new ResourceLocation(MOD_ID, "zircon"); // zirconium
+    //public static final ResourceLocation TETRABORATE = new ResourceLocation(MOD_ID, "tetraborate"); // boron
+    //public static final ResourceLocation SPODUMENE = new ResourceLocation(MOD_ID, "spodumene"); // lithium
+    //public static final ResourceLocation THORIANITE = new ResourceLocation(MOD_ID, "thorianite"); // thorium
+    //public static final ResourceLocation PYROLUSITE = new ResourceLocation(MOD_ID, "pyrolusite"); // manganese
+    //public static final ResourceLocation MAGNESITE = new ResourceLocation(MOD_ID, "magnesite"); //magnesium
+    //public static final ResourceLocation BERYL = new ResourceLocation(MOD_ID, "beryl"); //beryllium
+    //public static final ResourceLocation ZIRCON = new ResourceLocation(MOD_ID, "zircon"); // zirconium
 
     //Ore without TFC-M metals
-    public static final ResourceLocation CHROMITE = new ResourceLocation(MOD_ID, "chromite"); // chrome
-    public static final ResourceLocation VILLIAUMITE = new ResourceLocation(MOD_ID, "villiaumite");
-    public static final ResourceLocation RHODOCHROSITE = new ResourceLocation(MOD_ID, "rhodochrosite");
-    public static final ResourceLocation FLUORITE = new ResourceLocation(MOD_ID, "fluorite");
-    public static final ResourceLocation CAROBBIITE = new ResourceLocation(MOD_ID, "carobbiite");
-    public static final ResourceLocation ARSENIC = new ResourceLocation(MOD_ID, "arsenic");
+    //public static final ResourceLocation CHROMITE = new ResourceLocation(MOD_ID, "chromite"); // chrome
+    //public static final ResourceLocation VILLIAUMITE = new ResourceLocation(MOD_ID, "villiaumite");
+    //public static final ResourceLocation RHODOCHROSITE = new ResourceLocation(MOD_ID, "rhodochrosite");
+    //public static final ResourceLocation FLUORITE = new ResourceLocation(MOD_ID, "fluorite");
+    //public static final ResourceLocation CAROBBIITE = new ResourceLocation(MOD_ID, "carobbiite");
+    //public static final ResourceLocation ARSENIC = new ResourceLocation(MOD_ID, "arsenic");
 
     @SubscribeEvent
     public static void onPreRegisterMetal(TFCRegistryEvent.RegisterPreBlock<Metal> event)
     {
         IForgeRegistry<Metal> r = event.getRegistry();
         r.registerAll(
+                new Metal(ALUMINIUM, Metal.Tier.TIER_III, true, 0.3f, 660, 0xFFD9FBFC, ToolMaterialsTFCM.ALUMINIUM, ArmorMaterialsTFCM.ALUMINIUM),
+                new Metal(CONSTANTAN, Metal.Tier.TIER_II, true, 0.5f, 1200, 0xFFD28874, null, null),
+                new Metal(ELECTRUM, Metal.Tier.TIER_II, true, 0.5f, 1200, 0xFFDFB950, null, null),
+                new Metal(TITANIUM, Metal.Tier.TIER_VI, true, 0.3f, 1700, 0xFFC2C4CC, null,null)
+        );
+
+        /*r.registerAll(
                 new Metal(ANTIMONY, Metal.Tier.TIER_I, true, 0.25f, 630, 0xFFE7E7F5, null, null),
                 new Metal(LITHIUM, Metal.Tier.TIER_II, true, 0.25f, 630, 0xC9CBC3, null, null),
                 new Metal(CONSTANTAN, Metal.Tier.TIER_II, true, 0.5f, 1200, 0xFFD28874, null, null),
@@ -137,7 +148,7 @@ public final class RegistryHandler
                 new Metal(ZIRCONIUM, Metal.Tier.TIER_VI, true, 0.35f, 1500, 0xFF747527, null, null),
                 new Metal(ZIRCALOY, Metal.Tier.TIER_VI, true, 0.35f, 1500, 0xFF43423A, ToolMaterialsTFCM.ZIRCALOY, ArmorMaterialsTFCM.ZIRCALOY),
                 new Metal(TOUGH, Metal.Tier.TIER_VI, true, 0.3f, 3000, 0xFF3F2B61, null, null)
-        );
+        );*/
     }
 
 
@@ -145,7 +156,8 @@ public final class RegistryHandler
     public static void onPreRegisterOre(TFCRegistryEvent.RegisterPreBlock<Ore> event)
     {
         IForgeRegistry<Ore> r = event.getRegistry();
-        r.registerAll(
+        r.registerAll(new Ore(BAUXITE, ALUMINIUM, false),new Ore(RUTILE, TITANIUM, false));
+        /*r.registerAll(
                 //  Ores which *could* be melted directly if it's temperature is met
                 new Ore(STIBNITE, ANTIMONY, true),
                 new Ore(SPODUMENE, LITHIUM, true),
@@ -169,7 +181,7 @@ public final class RegistryHandler
                 new Ore(FLUORITE),
                 new Ore(CAROBBIITE),
                 new Ore(ARSENIC)
-        );
+        );*/
     }
 
     @SubscribeEvent
@@ -178,8 +190,8 @@ public final class RegistryHandler
         IForgeRegistry<AlloyRecipe> r = event.getRegistry();
         r.registerAll(
                 new AlloyRecipe.Builder(CONSTANTAN).add(COPPER, 0.4, 0.6).add(NICKEL, 0.4, 0.6).build(),
-                new AlloyRecipe.Builder(ELECTRUM).add(GOLD, 0.4, 0.6).add(SILVER, 0.4, 0.6).build(),
-                new AlloyRecipe.Builder(MITHRIL).add(COPPER, 0.88, 0.92).add(ANTIMONY, 0.08, 0.12).build(),
+                new AlloyRecipe.Builder(ELECTRUM).add(GOLD, 0.4, 0.6).add(SILVER, 0.4, 0.6).build()
+                /*new AlloyRecipe.Builder(MITHRIL).add(COPPER, 0.88, 0.92).add(ANTIMONY, 0.08, 0.12).build(),
                 new AlloyRecipe.Builder(INVAR).add(WROUGHT_IRON, 0.6, 0.7).add(NICKEL, 0.3, 0.4).build(),
                 new AlloyRecipe.Builder(ALUMINIUM_BRASS).add(ALUMINIUM, 0.65, 0.85).add(COPPER, 0.15, 0.35).build(),
                 new AlloyRecipe.Builder(MANYULLYN).add(COBALT, 0.4, 0.6).add(ARDITE, 0.4, 0.6).build(),
@@ -190,7 +202,7 @@ public final class RegistryHandler
                 new AlloyRecipe.Builder(MAGNESIUM_DIBORIDE).add(BORON, 0.4, 0.6).add(MAGNESIUM, 0.2, 0.4).build(),
                 new AlloyRecipe.Builder(BERYLLIUM_COPPER).add(BERYLLIUM, 0.3, 0.6).add(COPPER, 0.3, 0.6).add(ALUMINIUM, 0.1, 0.3).build(),
                 new AlloyRecipe.Builder(ZIRCALOY).add(ZIRCONIUM, 0.72, 0.98).add(TIN, 0.2, 0.4).build(),
-                new AlloyRecipe.Builder(TOUGH).add(FERROBORON, 0.4, 0.6).add(LITHIUM, 0.4, 0.6).build()
+                new AlloyRecipe.Builder(TOUGH).add(FERROBORON, 0.4, 0.6).add(LITHIUM, 0.4, 0.6).build()*/
         );
     }
 
@@ -203,7 +215,7 @@ public final class RegistryHandler
         {
             registry.register(new BloomeryRecipe(TFCRegistries.METALS.getValue(ALUMINIUM), FuelManager::isItemBloomeryFuel));
         }
-        if (ConfigTFCM.RECIPES.ardite)
+        /*if (ConfigTFCM.RECIPES.ardite)
         {
             registry.register(new BloomeryRecipe(TFCRegistries.METALS.getValue(ARDITE), FuelManager::isItemBloomeryFuel));
         }
@@ -222,14 +234,22 @@ public final class RegistryHandler
         if (ConfigTFCM.RECIPES.magnesium)
         {
             registry.register(new BloomeryRecipe(TFCRegistries.METALS.getValue(MAGNESIUM), FuelManager::isItemBloomeryFuel));
-        }
+        }*/
     }
 
     @SubscribeEvent
     public static void onRegisterBlastFurnaceRecipeEvent(RegistryEvent.Register<BlastFurnaceRecipe> event)
     {
         IForgeRegistry<BlastFurnaceRecipe> registry = event.getRegistry();
-        if (ConfigTFCM.RECIPES.osmium)
+        if (ConfigTFCM.RECIPES.titanium)
+        {
+            Metal titanium = TFCRegistries.METALS.getValue(TITANIUM);
+            if (titanium != null)
+            {
+                registry.register(new BlastFurnaceRecipe(titanium, titanium, IIngredient.of("dustFlux")));
+            }
+        }
+        /*if (ConfigTFCM.RECIPES.osmium)
         {
             Metal osmium = TFCRegistries.METALS.getValue(OSMIUM);
             if (osmium != null)
@@ -268,7 +288,7 @@ public final class RegistryHandler
             {
                 registry.register(new BlastFurnaceRecipe(zirconium, zirconium, IIngredient.of("dustFlux")));
             }
-        }
+        }*/
     }
 
     @SubscribeEvent
@@ -286,7 +306,7 @@ public final class RegistryHandler
                         Metal.Tier.TIER_II, null, HIT_LAST, HIT_SECOND_LAST, HIT_THIRD_LAST));
             }
         }
-        if (ConfigTFCM.RECIPES.ardite)
+        /*if (ConfigTFCM.RECIPES.ardite)
         {
             Metal ardite = TFCRegistries.METALS.getValue(ARDITE);
             if (ardite != null)
@@ -340,7 +360,7 @@ public final class RegistryHandler
                         new ItemStack(ItemMetal.get(manganese, INGOT)),
                         Metal.Tier.TIER_II, null, HIT_LAST, HIT_SECOND_LAST, HIT_THIRD_LAST));
             }
-        }
+        }*/
     }
 
     @SubscribeEvent
@@ -380,7 +400,7 @@ public final class RegistryHandler
     @SubscribeEvent
     public static void onRegisterQuernRecipeEvent(RegistryEvent.Register<QuernRecipe> event)
     {
-        IForgeRegistry<QuernRecipe> r = event.getRegistry();
+        /*IForgeRegistry<QuernRecipe> r = event.getRegistry();
 
         Metal uranium = TFCRegistries.METALS.getValue(URANIUM);
         Metal boron = TFCRegistries.METALS.getValue(BORON);
@@ -395,7 +415,7 @@ public final class RegistryHandler
             r.register(new QuernRecipe(IIngredient.of("gemBorax"), new ItemStack(ItemMetal.get(boron, ItemType.DUST), 4)).setRegistryName("boron_dust"));
         }
 
-        r.register(new QuernRecipe(IIngredient.of("gemFluorite"), new ItemStack(ItemPowder.get(Powder.FLUX), 6)).setRegistryName("fluorite_flux"));
+        r.register(new QuernRecipe(IIngredient.of("gemFluorite"), new ItemStack(ItemPowder.get(Powder.FLUX), 6)).setRegistryName("fluorite_flux"));*/
     }
 
     private static IIngredient<ItemStack> getBloomIngredient(Metal metal)
