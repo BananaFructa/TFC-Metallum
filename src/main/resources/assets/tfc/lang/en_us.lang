@@ -2785,6 +2785,7 @@ vein.fluorite.name=Fluorite
 vein.carobbiite.name=Carobbiite
 vein.arsenic.name=Arsenic
 vein.pitchblende.name=Pitchblende
+vein.rutile.name=Rutile
 
 # trapdoors
 tile.tfc.trapdoor.aluminium.name=Aluminium Trapdoor
