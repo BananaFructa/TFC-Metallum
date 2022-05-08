@@ -75,8 +75,8 @@
   "rutile": {
     "ore": "tfc:rutile",
     "loose": "tfc:rutile",
-    "width": 5,
-    "height": 10,
+    "width": 20,
+    "height": 25,
     "shape": "cluster",
     "rarity": 120,
     "minimum_height": 5,
@@ -319,8 +319,8 @@
   },
   "pitchblende": {
     "ore": "tfc:pitchblende",
-    "width": 5,
-    "height": 15,
+    "width": 28,
+    "height": 36,
     "shape": "cluster",
     "rarity": 80,
     "minimum_height": 5,
@@ -330,6 +330,23 @@
       "tfc:metamorphic",
       "tfc:igneous_extrusive",
       "tfc:igneous_intrusive"
+    ]
+  },
+  "galena_tfc": {
+    "ore": "tfc:galena",
+    "loose": "tfc:galena",
+    "width": 28,
+    "height": 36,
+    "shape": "cluster",
+    "rarity": 140,
+    "minimum_height": 5,
+    "maximum_height": 144,
+    "density": 70,
+    "base_rocks": [
+      "tfc:metamorphic",
+      "tfc:igneous_extrusive",
+      "tfc:granite",
+      "tfc:limestone"
     ]
   }
 }
